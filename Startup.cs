@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -15,7 +15,7 @@ using Microsoft.Extensions.DependencyInjection.Extensions;
 using Robonom.Web.Core.Apps.Common;
 
 namespace Robonom.Web.Core
-{
+{ 
     public class Startup
     {
         private ILogger<Startup> _logger;

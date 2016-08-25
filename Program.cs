@@ -18,7 +18,7 @@ namespace Robonom.Web.Core
                 .AddJsonFile("hosting.json", optional: true)
                 .Build();
 
-
+             
             var host = new WebHostBuilder()
                 .UseKestrel()
                 .UseConfiguration(config)
