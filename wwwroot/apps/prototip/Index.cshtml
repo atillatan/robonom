@@ -1,0 +1,17 @@
+@model dynamic
+@{
+    if (Current.IsAjaxRequest()) { Layout = null; }
+    ViewData["Title"] = "Prototip - Ankara üniversitesi - Üniversite Bilgi Sistemi";
+}
+ornek sayfa
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var iframeWin = parent.document.getElementById("iframe1");
+        iframeWin.height = document.body.scrollHeight-100;
+    });
+
+</script>
+
+<iframe id="iframe1" src="https://angular-ui.github.io/bootstrap/" width="100%" frameborder="0" style="margin:0;padding:0;"></iframe>

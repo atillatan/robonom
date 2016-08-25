@@ -1,0 +1,20 @@
+﻿{
+  "template": "~/wwwroot/data/rb-themes/filehoo/theme1.cshtml",
+  "object.type": "file",
+  "display.name   ": "Giris Sayfasi",
+  "title": "Filehoo",
+  "keywords": "download free app",
+  "description": "filehoo download center",
+  "tags": "utility",
+  "status": "active",
+  "ishidden": "true",
+  "isauthorized": "false",
+  "redirect.url": "",
+  "redirect.target": "",
+  "default.document": "",
+  "rating": "1000",
+  "created.by": "admin",
+  "modified.by": "admin",
+  "created.date": "04.12.2011 23:16:41",
+  "modified.date": "24.07.2013 09:17:00"
+}

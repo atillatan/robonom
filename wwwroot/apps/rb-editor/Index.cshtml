@@ -1,0 +1,21 @@
+@using Robonom.Web.Core.wwwroot.apps.rb_editor
+@model  Robonom.Web.Core.wwwroot.apps.rb_editor.RbEditorModel
+
+@if (Model.IsEditorOpen)
+{
+ 
+        <form method="post" asp-action="Save" asp-controller="RbEditor">
+            First name:<br>;
+            <input asp-for="Header"><br>
+            Last name:<br>
+            <textarea name="content" rows="10" cols="20"> </textarea><br>
+            <input type="submit">
+        </form>
+
+        }
+        @Html.Raw(Model.ResponseHtml)
+
+        @functions
+{
+
+        }
