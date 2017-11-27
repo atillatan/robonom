@@ -1,5 +1,10 @@
 @using Robonom.Apps
-@model  Robonom.Apps.ContentModel
+@model Robonom.Apps.ContentModel
+
+
+<h3>
+@Model.Message
+</h3>
 
 @if (Model.IsEditorOpen)
 {
@@ -11,12 +16,11 @@
             <textarea name="content" rows="10" cols="20"> </textarea><br>
             <input type="submit">
         </form>
+}
 
-        }
-        @Html.Raw(Model.ResponseHtml)
+@Html.Raw(Model.ResponseHtml)
 
-        @functions
+@functions
 {
-
-        }
+}
 

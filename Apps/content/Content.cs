@@ -9,9 +9,10 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Robonom.Common;
 
-namespace  Robonom.Apps
+namespace Robonom.Apps
 {
     [ViewComponent]
     public class Content : ViewComponent
@@ -23,7 +24,7 @@ namespace  Robonom.Apps
             _viewComponentHelper = viewComponentHelper;
             Console.WriteLine(_viewComponentHelper.ToString());
         }
- 
+
         public async Task<IViewComponentResult> InvokeAsync()
         {
             string viewPath = $"{"~"}{Current.AppsPath}{"/content/Index.cshtml"}";
@@ -42,7 +43,7 @@ namespace  Robonom.Apps
             {
                 string header = Model.Header;
                 //string content = Model.Content;
-                 header = _httpContext.Request.Form["header"];
+                header = _httpContext.Request.Form["header"];
                 string content = _httpContext.Request.Form["content"];
                 responseHtml = new HtmlString(content);
                 Model.ResponseHtml = responseHtml.ToString();
@@ -50,21 +51,29 @@ namespace  Robonom.Apps
 
             if (Request.Method == "GET")
             {
+                //Task<string> fileContent = System.IO.File.ReadAllTextAsync(Current.ContentRootPath + Current.PagesPath + filePath + ".md");
                 string fileContent = System.IO.File.ReadAllText(Current.ContentRootPath + Current.PagesPath + filePath + ".md");
-                fileContent=Current.RemoveFrontMeter(fileContent);
-                 
+                await Task.Delay(10);
+                fileContent = Current.RemoveFrontMeter(fileContent);
+
                 Model.ResponseHtml = new HtmlString(Markdown.ToHtml(fileContent)).ToString();
             }
-            await Task.Delay(10);
+
             return View(viewPath, Model);
         }
     }
 
     public class ContentModel
     {
-        public string Header { get; set; }
 
-        public string Content { get; set; }
+        public ContentModel()
+        {
+            Message = "Your application description page.";
+        }
+
+        public string Message { get; set; }
+
+        public string Header { get; set; }
 
         public bool IsEditorOpen { get; set; }
 

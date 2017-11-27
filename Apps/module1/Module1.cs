@@ -20,8 +20,6 @@ namespace Robonom.Apps
         {
             _environment = environment;
             _viewComponentHelper = viewComponentHelper;
-            Console.WriteLine(_viewComponentHelper.ToString());
-            Console.WriteLine(_environment.ToString());
         }
         public ViewViewComponentResult Invoke(string url)//Asenkron yapilmali
         {
@@ -35,6 +33,7 @@ namespace Robonom.Apps
                 string paramStr = urlparts[1];
                 if (paramStr.Contains("&")) parameters = paramStr.Split('&');
                 else parameters = new string[] { paramStr };
+                //await Task.Delay(10);
                 return View(baseUrl, model: parameters);
 
             }
@@ -42,6 +41,6 @@ namespace Robonom.Apps
             {
                 return View(baseUrl);
             }
-        }
+        }         
     }
 }
