@@ -45,7 +45,7 @@ namespace Robonom
             //});
 
             //services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            //services.TryAddSingleton<IActionContextAccessor, ActionContextAccessor>();
+            services.TryAddSingleton<IActionContextAccessor, ActionContextAccessor>();
 
             //services.AddTransient<IEmailSender, AuthMessageSender>();
             //services.AddTransient<ISmsSender, AuthMessageSender>();
