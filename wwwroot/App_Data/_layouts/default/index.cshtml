@@ -1,0 +1,38 @@
+﻿@{
+    Layout = "~/wwwroot/App_Data/_layouts/default/layout.cshtml";
+    ViewData["Title"] = "Ana Sayfa - Robonom Blog System";
+}
+
+
+<article>
+@await Component.InvokeAsync("Content")
+
+
+<!--Experimental-->
+<h1>default</h1>
+This file is editable. You can design page layout using this file
+ 
+You can include another cshtml file here. like that 
+ [at]await Html.PartialAsync("/wwwroot/App_Data/_includes/footer.cshtml")
+ 
+
+<hr>
+ 
+@await Component.InvokeAsync("Module1", new { url = "/apps/module1/Index.cshtml?param1=1&param2=2" })
+ 
+<hr>
+
+@await Component.InvokeAsync("Module2", new { url = "/apps/module2/Index.cshtml?param1=1&param2=2" })
+
+<hr>
+
+@await Component.InvokeAsync("Module2", "/apps/module2/Index.cshtml?param1=1&param2=2") 
+
+<!--Experimental-->
+        
+</article>
+
+
+
+
+ 

@@ -1,0 +1,22 @@
+@using Robonom.Apps
+@model  Robonom.Apps.ContentModel
+
+@if (Model.IsEditorOpen)
+{
+ <h1>Example Form</h1>
+        <form method="post" asp-action="Save" asp-controller="Content">
+            First name:<br>
+            <input asp-for="Header"><br>
+            Last name:<br>
+            <textarea name="content" rows="10" cols="20"> </textarea><br>
+            <input type="submit">
+        </form>
+
+        }
+        @Html.Raw(Model.ResponseHtml)
+
+        @functions
+{
+
+        }
+

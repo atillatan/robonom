@@ -1,0 +1,45 @@
+﻿@using System.ComponentModel
+@using Robonom.Common
+@using Robonom.Apps
+@using Microsoft.AspNetCore.Mvc.ViewComponents
+@using System.Threading.Tasks
+ 
+@model  Robonom.Common.Site
+
+<!DOCTYPE html>
+<html lang="en">
+	 @await Html.PartialAsync("/wwwroot/App_Data/_includes/header.cshtml")
+
+<body id="body">
+
+     <header class="container">
+			 @await Html.PartialAsync("/wwwroot/App_Data/_includes/nav-top.cshtml")
+    </header>
+
+    <section class="container">
+        <div class="row">
+				
+            <div class="col-md-3">
+                @await Html.PartialAsync("/wwwroot/App_Data/_includes/nav-left.cshtml")
+            </div>
+				
+            <div class="col-md-9 content">
+            
+            @RenderBody()
+            
+            </div>		
+     
+				
+        </div>
+    </section>
+            <br>
+        <footer class="container">
+              @await Html.PartialAsync("/wwwroot/App_Data/_includes/footer.cshtml")
+        </footer>
+</body>
+</html>
+
+
+
+
+

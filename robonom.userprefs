@@ -1,0 +1,18 @@
+﻿<Properties StartupConfiguration="{69BC40DB-A696-41DE-982E-DC4D0C2B057F}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Startup.cs">
+    <Files>
+      <File FileName="Startup.cs" Line="15" Column="40" />
+      <File FileName="README.md" Line="103" Column="25" />
+      <File FileName="wwwroot/App_Data/_layouts/default/default.cshtml" Line="14" Column="2" />
+      <File FileName="wwwroot/App_Data/_layouts/default/theme1.cshtml" Line="17" Column="1" />
+      <File FileName="Apps/_ViewImports.cshtml" Line="8" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.robonom PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>

@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <RootNamespace>Robonom</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BuildBundlerMinifier" Version="2.6.362" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.3" />
+    <PackageReference Include="Markdig" Version="0.14.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\assets\" />
+    <Folder Include="wwwroot\assets\css\" />
+    <Folder Include="wwwroot\assets\js\" />    
+    <Folder Include="wwwroot\assets\images\" />
+    <Folder Include="Common\" />
+    <Folder Include="wwwroot\assets\lib\" />
+    <Folder Include="wwwroot\App_Data\_layouts\" />
+    <Folder Include="wwwroot\App_Data\posts\" />
+    <Folder Include="wwwroot\App_Data\_includes\" />
+    <Folder Include="wwwroot\App_Data\seo\" />
+    <Folder Include="wwwroot\App_Data\pages\" />
+    <Folder Include="wwwroot\App_Data\" />
+     
+     <Folder Include="Apps\" />
+     <Folder Include="Apps\common\" />
+  </ItemGroup>
+  <ItemGroup>
+ 
+  </ItemGroup>
+  
+ 
+</Project>

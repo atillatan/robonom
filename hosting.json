@@ -1,0 +1,4 @@
+﻿{
+  "server.urls": "http://localhost:5000",
+  "webroot": "wwwroot"
+}

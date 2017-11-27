@@ -1,0 +1,10 @@
+/Users/atilla/GDrive/projects/RobonomV2/robonom/bin/Debug/netcoreapp2.0/robonom.deps.json
+/Users/atilla/GDrive/projects/RobonomV2/robonom/bin/Debug/netcoreapp2.0/robonom.runtimeconfig.json
+/Users/atilla/GDrive/projects/RobonomV2/robonom/bin/Debug/netcoreapp2.0/robonom.runtimeconfig.dev.json
+/Users/atilla/GDrive/projects/RobonomV2/robonom/bin/Debug/netcoreapp2.0/robonom.dll
+/Users/atilla/GDrive/projects/RobonomV2/robonom/bin/Debug/netcoreapp2.0/robonom.pdb
+/Users/atilla/GDrive/projects/RobonomV2/robonom/obj/Debug/netcoreapp2.0/robonom.csproj.CoreCompileInputs.cache
+/Users/atilla/GDrive/projects/RobonomV2/robonom/obj/Debug/netcoreapp2.0/robonom.AssemblyInfoInputs.cache
+/Users/atilla/GDrive/projects/RobonomV2/robonom/obj/Debug/netcoreapp2.0/robonom.AssemblyInfo.cs
+/Users/atilla/GDrive/projects/RobonomV2/robonom/obj/Debug/netcoreapp2.0/robonom.dll
+/Users/atilla/GDrive/projects/RobonomV2/robonom/obj/Debug/netcoreapp2.0/robonom.pdb

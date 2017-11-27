@@ -1,0 +1,52 @@
+﻿@using System.ComponentModel
+@using System.Threading.Tasks
+@using System.IO
+@using System.Net.Http;
+@using System.Threading.Tasks;
+@using Microsoft.AspNetCore.Hosting;
+@using Newtonsoft.Json;
+@using Robonom.Common
+
+@{
+  
+  List<dynamic> Pages = new List<dynamic>();
+  string pagesPath = Current.ContentRootPath + Current.PagesPath;
+  string[] files = Directory.GetFiles(pagesPath, "*.*", SearchOption.AllDirectories);
+
+  foreach (string path in files)
+  {
+      if (File.Exists(path))
+      {      
+          if (System.IO.Path.GetFileNameWithoutExtension(path).StartsWith(".")) {
+            continue;
+          }
+ 
+          dynamic page = JsonConvert.DeserializeObject(Current.GetFrontMeter(path));
+          page.FilePath = path;
+          page.path=path.Replace(Current.ContentRootPath+Current.PagesPath,"").Replace(".md","");
+
+          Pages.Add(page);
+      }
+  } 
+
+}
+
+ 
+
+
+<div class="panel panel-default" style="margin-bottom:0px;">
+ <div class="panel-heading">
+   <h4 class="panel-title">Menu</h4>
+ </div>
+ 
+ @foreach(var item in Pages) {
+    
+     <a class="list-group-item" href="@item.path">@item.name</a>
+  }
+  
+ 
+</div>
+
+
+
+ 
