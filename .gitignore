@@ -1,1 +1,12 @@
-﻿
+﻿.DS_Store
+*.suo
+*.user
+*.userprefs
+bin
+bin/ 
+wwwroot/assets/lib/
+wwwroot/assets/lib
+obj/
+obj
+
+ 
