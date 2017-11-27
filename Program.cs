@@ -22,18 +22,16 @@ namespace Robonom
         {
             return new WebHostBuilder()
             .UseKestrel()
+            .UseUrls("http://localhost:8090")
             .UseContentRoot(Directory.GetCurrentDirectory())
             .ConfigureAppConfiguration((webHostBuilderContext, config) =>
             {
                 //configuration will send startup.cs
                 var env = webHostBuilderContext.HostingEnvironment;
 
-                config.SetBasePath(env.ContentRootPath);
-
+                config.SetBasePath(env.ContentRootPath);                
                 config.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-                      .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true);
-
-                config.AddJsonFile("hosting.json",optional:true);      
+                      .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true);                  
 
                 config.AddEnvironmentVariables();
 
