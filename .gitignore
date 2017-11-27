@@ -1,10 +1,1 @@
-﻿.DS_Store
-.sass-cache
-node_modules
-package.json
-/wwwroot/assets/lib/
-/wwwroot/assets/lib
-/obj/
-/obj
-
- 
+﻿
