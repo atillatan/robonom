@@ -1,4 +1,6 @@
-﻿using System;
+//TODO: Atilla, i chande name Site like jekyll, i create 3 singleton class like Site (for application scope),
+// User (for session scope), Page (for current request), 
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -16,24 +18,21 @@ using Newtonsoft.Json;
 
 namespace Robonom.Common
 {
-    /// <summary>
-    /// Extension methods, for accessing information about the current request.
-    /// </summary>
-    public static class Current //TODO: Atilla, i chande name Site like jekyll, i create 3 singleton class like Site (for application scope),
-    // User (for session scope), Page (for current request), 
+    public static class Site
     {
+
         public static IConfiguration Configuration = null;
         public static IHostingEnvironment Environment = null;
         public static List<dynamic> Pages = new List<dynamic>();
-
+ 
         // private static IHttpContextAccessor _contextAccessor = HttpContext..RequestServices
-        static Current() { }
+        static Site() { }
         public static void PushConfig(IConfiguration config, IHostingEnvironment environment)
         {
             Configuration = config;
             Environment = environment;
 
-            string[] files = Directory.GetFiles(environment.ContentRootPath + Current.PagesPath, "*.*", SearchOption.AllDirectories);
+            string[] files = Directory.GetFiles(environment.ContentRootPath + Site.PagesPath, "*.*", SearchOption.AllDirectories);
 
             foreach (string path in files)
             {
@@ -42,7 +41,7 @@ namespace Robonom.Common
                     string na = Path.GetFileNameWithoutExtension(path);
                     if (na.StartsWith(".")) continue;
                     dynamic page = null;
-                    page = JsonConvert.DeserializeObject(Current.GetFrontMeter(path));
+                    page = JsonConvert.DeserializeObject(Site.GetFrontMeter(path));
                     page.FilePath = path;
                     Pages.Add(page);
                 }
@@ -105,10 +104,10 @@ namespace Robonom.Common
         public static dynamic GetPageInfo(string requestedPath)
         {
             string _requestedPath = requestedPath;
-            string _urlMethodKey = Current.GetConfig("url_method_key");
-            string _webRootPath = Current.WebRootPath;
+            string _urlMethodKey = Site.GetConfig("url_method_key");
+            string _webRootPath = Site.WebRootPath;
             string _dataRootPath = $"{_webRootPath}{"/App_Data"}";
-            string _fileExtension = ".md";//Current.GetAppConfig("page_file_extension");
+            string _fileExtension = ".md";//Site.GetAppConfig("page_file_extension");
             string _pageFilePath = _requestedPath;
             string _pageMethodName = "";
             string _pageMethodParam = "";
@@ -139,7 +138,7 @@ namespace Robonom.Common
             if (File.Exists(_pageFilePath))
             {
                 //result = JsonConvert.DeserializeObject(File.ReadAllText(_pageFilePath));                
-                page = JsonConvert.DeserializeObject(Current.GetFrontMeter(_pageFilePath));
+                page = JsonConvert.DeserializeObject(Site.GetFrontMeter(_pageFilePath));
                 page.FilePath = _pageFilePath;
                 page.RequestedPath = _requestedPath;
                 page.PageMethod = _pageMethodName;
@@ -196,6 +195,7 @@ namespace Robonom.Common
         }
 
         #endregion
+
 
 
 

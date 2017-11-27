@@ -22,8 +22,8 @@ namespace Robonom.Apps
 
         public async Task<IViewComponentResult> InvokeAsync(string url)
         {
-            string viewPath = $"{"~"}{Current.AppsPath}{"/seo/Index.cshtml"}";
-            string staticHtml = (Current.WebRootPath + url);
+            string viewPath = $"{"~"}{Site.AppsPath}{"/seo/Index.cshtml"}";
+            string staticHtml = (Site.WebRootPath + url);
             return View(viewPath, await File.ReadAllTextAsync(staticHtml));
         }
     }

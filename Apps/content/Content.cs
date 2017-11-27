@@ -27,7 +27,7 @@ namespace Robonom.Apps
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            string viewPath = $"{"~"}{Current.AppsPath}{"/content/Index.cshtml"}";
+            string viewPath = $"{"~"}{Site.AppsPath}{"/content/Index.cshtml"}";
             string filePath = Request.Path;
             if (filePath.Equals("/")) filePath = "/default";
 
@@ -52,9 +52,9 @@ namespace Robonom.Apps
             if (Request.Method == "GET")
             {
                 //Task<string> fileContent = System.IO.File.ReadAllTextAsync(Current.ContentRootPath + Current.PagesPath + filePath + ".md");
-                string fileContent = System.IO.File.ReadAllText(Current.ContentRootPath + Current.PagesPath + filePath + ".md");
+                string fileContent = System.IO.File.ReadAllText(Site.ContentRootPath + Site.PagesPath + filePath + ".md");
                 await Task.Delay(10);
-                fileContent = Current.RemoveFrontMeter(fileContent);
+                fileContent = Site.RemoveFrontMeter(fileContent);
 
                 Model.ResponseHtml = new HtmlString(Markdown.ToHtml(fileContent)).ToString();
             }

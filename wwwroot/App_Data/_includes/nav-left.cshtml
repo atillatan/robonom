@@ -10,7 +10,7 @@
 @{
   
   List<dynamic> Pages = new List<dynamic>();
-  string pagesPath = Current.ContentRootPath + Current.PagesPath;
+  string pagesPath = Site.ContentRootPath + Site.PagesPath;
   string[] files = Directory.GetFiles(pagesPath, "*.*", SearchOption.AllDirectories);
 
   foreach (string path in files)
@@ -21,9 +21,9 @@
             continue;
           }
  
-          dynamic page = JsonConvert.DeserializeObject(Current.GetFrontMeter(path));
+          dynamic page = JsonConvert.DeserializeObject(Site.GetFrontMeter(path));
           page.FilePath = path;
-          page.path=path.Replace(Current.ContentRootPath+Current.PagesPath,"").Replace(".md","");
+          page.path=path.Replace(Site.ContentRootPath+Site.PagesPath,"").Replace(".md","");
 
           Pages.Add(page);
       }

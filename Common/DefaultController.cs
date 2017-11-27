@@ -26,7 +26,7 @@ namespace Robonom.Common
         private IRazorViewEngine _razorViewEngine;
         private IActionContextAccessor _actionContextAccessor;
         private IViewComponentHelper _viewComponentHelper;
-        public Site Site = new Site();
+        public Page Page = new Page();
 
         //private ITempDataProvider _tempDataProvider;
         //private IHttpContextAccessor _httpContextAccessor;
@@ -51,11 +51,15 @@ namespace Robonom.Common
             //viewComponentHelper = new DefaultViewComponentHelper(descriptorProvider, HtmlEncoder.Default, selector, invokerFactory, viewBufferScope);
             //razorView = new RazorView(razorViewEngine, pageActivator,new ViewStart, viewStartPage, HtmlEncoder.Default,);
 
-
             _viewEngine = compositeViewEngine;
             _razorViewEngine = razorViewEngine;
             _actionContextAccessor = actionContextAccessor;
             _viewComponentHelper = viewComponentHelper;
+
+            Page.HttpContext=_httpContext;
+            Page.ActionContext=_actionContext;
+            Page.Config=_config;
+            Page.Environment=_hostingEnvironment;
         }
 
         /// <summary>
@@ -64,8 +68,9 @@ namespace Robonom.Common
         /// <returns></returns>
         public IActionResult Index()
         {
-            dynamic pageInfo = Current.GetPageInfo(this.HttpContext);
-            Site.Page = pageInfo;
+            dynamic pageInfo = Site.GetPageInfo(this.HttpContext);
+            Page.Info = pageInfo;
+
             bool isDevelopment = _hostingEnvironment.EnvironmentName.Equals("Development");
             string message = "";
 
@@ -75,23 +80,23 @@ namespace Robonom.Common
                 message = "<H1>404 page not found!</H1>";
                 if (isDevelopment) message += "<hr>" + Request.Path;
                 ViewData["Message"] = message;
-                return View(Current.GetConfig("ErrorPage"));
+                return View(Site.GetConfig("ErrorPage"));
             }
 
 
             //Checking Layout
-            string realLayoutPath = Current.Environment.ContentRootPath + Current.LayoutsPath + pageInfo.layout;
+            string realLayoutPath = Site.Environment.ContentRootPath + Site.LayoutsPath + pageInfo.layout;
 
             if (!System.IO.File.Exists(realLayoutPath))
             {
                 message = "<H1>404 Layout file not found!</H1>";
                 if (isDevelopment) message += "<hr>" + realLayoutPath;
                 ViewData["Message"] = message;
-                return View(Current.GetConfig("ErrorPage"));
+                return View(Site.GetConfig("ErrorPage"));
             }
 
-            string layoutPath = Current.LayoutsPath + pageInfo.layout;
-            return View(layoutPath, Site);
+            string layoutPath = Site.LayoutsPath + pageInfo.layout;
+            return View(layoutPath, Page);
 
             #region experimental
             //ViewData["HTML"] = System.IO.File.ReadAllText(realLayoutPath);
@@ -148,12 +153,5 @@ namespace Robonom.Common
         }
 
     }
-
-    public class Site
-    {
-        public dynamic Page { get; set; }
-        public IList<dynamic> Pages { get; set; }
-
-
-    }
+ 
 }

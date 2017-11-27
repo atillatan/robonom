@@ -92,8 +92,8 @@ namespace Robonom
             });
 
 
-            Current.PushConfig(Configuration, env);
-            HttpConnectionClient.Configure(new Uri(Current.GetConfig("DefaultAPIAddress")));
+            Site.PushConfig(Configuration, env);
+            HttpConnectionClient.Configure(new Uri(Site.GetConfig("DefaultAPIAddress")));
 
             //Configure RoboUtil.RedisUtil
             //ConfigManager.Current.Configurations["redis.server.address1"] = Configuration.GetSection("App").GetSection("redis.server.address1").Value;

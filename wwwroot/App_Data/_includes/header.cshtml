@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=yes">
     <meta name="robots" content="index, follow">
-    <meta name="copyright" content="Copyright @Current.Now.Year, Atilla Tanrikulu">
+    <meta name="copyright" content="Copyright @Site.Now.Year, Atilla Tanrikulu">
     <meta name="rating" content="General">
-    <meta name="publisher" content="@Current.GetConfig("name") team">
+    <meta name="publisher" content="@Site.GetConfig("name") team">
     <meta name="revisit-after" content="1 Days">
     <meta name="distribution" content="global">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
@@ -18,7 +18,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
  
-	<link href="@Current.AssetUrl/css/site.css" rel="stylesheet" />	
-	<title>@Model.Page.title</title>
+	<link href="@Site.AssetUrl/css/site.css" rel="stylesheet" />	
+      <meta name="description" content="@Model.Info.description">
+    
+	<title>@Model.Info.title</title>
     @await Component.InvokeAsync("Seo", new { url = "/App_Data/seo/generalheader.html" }) 
 </head>
