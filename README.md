@@ -2,7 +2,7 @@
 Simple blog framework
 
 
-## All request handled DefaultController
+## All requests are handling by DefaultController
 
 
 ```csharp
@@ -28,7 +28,7 @@ app.UseMvc(routes =>
             });
 ```
 
-## How is it works
+## How it works
 
 - Request: http://localhost:5000/subfolder1/default
 
