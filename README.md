@@ -8,7 +8,7 @@ Simple blog framework
 ```csharp
 app.UseMvc(routes =>
             {
-                // route1 : if we have a Controller we use Spacific NamedController
+                // route1 : if we have a Controller we use Specific NamedController
                 routes.MapRoute(
                     "default",
                     "{controller}/{action}/{id?}",
@@ -21,7 +21,7 @@ app.UseMvc(routes =>
                     new { controller = "Default", action = "Index" }
                 );
 
-                //route3 : for all api call 
+                //route3 : for all api calls for RESTful services
                 routes.MapRoute("defaultApi",
                     "api/{controller}/{id?}"
                     );
@@ -66,7 +66,7 @@ Example pageInfo:
 }
 ```
 
-- Load layour: `~/wwwroot/data/themes/filehoo/theme1.cshtml`
+- Load layout: `~/wwwroot/data/themes/filehoo/theme1.cshtml`
 
 Example layout content
 
@@ -82,45 +82,32 @@ Example layout content
 <!DOCTYPE html>
 <html lang="en">
      @await Html.PartialAsync("/wwwroot/App_Data/_includes/header.cshtml")
-
 <body id="body">
-
-     <header class="container">
+    <header class="container">
              @await Html.PartialAsync("/wwwroot/App_Data/_includes/nav-top.cshtml")
     </header>
 
     <section class="container">
         <div class="row">
-                
             <div class="col-md-3">
                 @await Html.PartialAsync("/wwwroot/App_Data/_includes/nav-left.cshtml")
             </div>
-                
             <div class="col-md-9 content">
                <article>
                 @await Component.InvokeAsync("Content")
-                        
               </article>
             </div>
-                
-     
-                
         </div>
-    </section>
-            <br>
-        <footer class="container">
-              @await Html.PartialAsync("/wwwroot/App_Data/_includes/footer.cshtml")
-        </footer>
+    </section>  
+
+    <footer class="container">
+            @await Html.PartialAsync("/wwwroot/App_Data/_includes/footer.cshtml")
+    </footer>
 </body>
 </html>
 
-
-
-
-
-
 ```
 
-- After that, every modules responsible their own task
-   - Every module can acceess "pageInfo"
-   - Every module run according to page info
+- Consequently, the main idea is that every modules are responsible their own tasks
+- Every module can access "pageInfo"
+- Every module run according to page info
